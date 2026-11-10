@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACIDX — Advanced Cloud & Intelligent Development X | Beyond Code, Beyond Limits</title>
+  <meta name="description" content="Next-Gen Software Architecture, Custom Discord & Telegram Bot Frameworks, Desktop Automation Utilities, and Workflow Engineering. Built on ACID principles.">
+  <meta name="keywords" content="ACIDX, Discord Bots, Telegram Bots, PC Tools, Automation, n8n, Cloud Development, Anti-Nuke, High-Performance Software">
+  <meta name="theme-color" content="#030305">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpolygon points='50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5' fill='%2305070f' stroke='%2300F0FF' stroke-width='4'/%3E%3Cpath d='M30,70 L50,25 L70,70 L58,70 L50,48 L42,70 Z' fill='%2300F0FF'/%3E%3Ccircle cx='50' cy='50' r='6' fill='%2339FF14'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Orbitron, Rajdhani, JetBrains Mono, Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cyber-theme">
+
+  <!-- Matrix / Cyber Grid Interactive Canvas -->
+  <canvas id="cyber-canvas"></canvas>
+
+  <!-- Ambient CRT Scanline & Grain Overlay -->
+  <div class="scanline-overlay" aria-hidden="true"></div>
+  <div class="vignette-overlay" aria-hidden="true"></div>
+
+  <!-- Global Top Telemetry Ticker -->
+  <div class="telemetry-bar">
+    <div class="ticker-wrapper">
+      <div class="ticker-item"><span class="status-dot green"></span> NODE: <strong class="neon-cyan">ACIDX-PRIME-01</strong></div>
+      <div class="ticker-separator">//</div>
+      <div class="ticker-item">UPTIME: <strong class="neon-green">99.998%</strong></div>
+      <div class="ticker-separator">//</div>
+      <div class="ticker-item">AVG LATENCY: <strong class="neon-cyan">3.8ms</strong></div>
+      <div class="ticker-separator">//</div>
+      <div class="ticker-item">ARCHITECTURE: <strong class="neon-silver">ACID + EXTENDED (X)</strong></div>
+      <div class="ticker-separator">//</div>
+      <div class="ticker-item">DISCORD SHARDS: <strong class="neon-green">SYNCED</strong></div>
+      <div class="ticker-separator">//</div>
+      <div class="ticker-item">TELEGRAM MTPROTO: <strong class="neon-cyan">ACTIVE</strong></div>
+      <div class="ticker-separator">//</div>
+      <div class="ticker-item">WIN-AOT WORKERS: <strong class="neon-green">READY</strong></div>
+      <div class="ticker-separator">//</div>
+      <div class="ticker-item">STATUS: <strong class="neon-green">ACCEPTING CUSTOM COMMISSIONS</strong></div>
+    </div>
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="cyber-header" id="navbar">
+    <div class="nav-container">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" id="logo-trigger">
+        <div class="logo-hexagon">
+          <svg viewBox="0 0 60 60" class="hex-svg">
+            <polygon points="30,3 56,18 56,42 30,57 4,42 4,18" class="hex-poly-outer" />
+            <polygon points="30,10 50,22 50,38 30,50 10,38 10,22" class="hex-poly-inner" />
+            <path d="M22,42 L30,18 L38,42 M25,35 L35,35" class="hex-letter-a" />
+          </svg>
+          <div class="pulse-node"></div>
+        </div>
+        <div class="brand-text-block">
+          <div class="brand-title">ACID<span class="brand-x">X</span></div>
+          <div class="brand-subtitle">ADVANCED EXECUTION</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link"><span class="nav-bracket">[</span> 01. MISSION <span class="nav-bracket">]</span></a>
+        <a href="#showcase" class="nav-link active"><span class="nav-bracket">[</span> 02. SHOWCASE <span class="nav-bracket">]</span></a>
+        <a href="#capabilities" class="nav-link"><span class="nav-bracket">[</span> 03. CAPABILITIES <span class="nav-bracket">]</span></a>
+        <a href="#terminal-section" class="nav-link"><span class="nav-bracket">[</span> 04. LIVE HUD <span class="nav-bracket">]</span></a>
+        <a href="#contact" class="nav-link"><span class="nav-bracket">[</span> 05. CONTACT <span class="nav-bracket">]</span></a>
+      </nav>
+
+      <!-- Nav Control Actions -->
+      <div class="nav-actions">
+        <!-- SFX Synth Toggle -->
+        <button id="sfx-toggle" class="cyber-btn-sfx" title="Toggle Futuristic Audio Effects" aria-label="Toggle SFX">
+          <svg class="sfx-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path class="sfx-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path class="sfx-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span class="sfx-status">SFX: ON</span>
+        </button>
+
+        <!-- CTA Launch Modal Button -->
+        <a href="#quote-modal" class="cyber-btn btn-nav-cta open-quote-btn">
+          <span class="btn-glitch-overlay"></span>
+          <span class="btn-text">GET A QUOTE <span class="arrow-sym">⚡</span></span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================== HERO SECTION ======================== -->
+  <section class="hero-section" id="hero">
+    <div class="cyber-container hero-grid">
+      <!-- Left Column: Hero Typography & CTAs -->
+      <div class="hero-content">
+        <!-- Sub-tag badge -->
+        <div class="cyber-badge-wrapper">
+          <span class="cyber-badge">
+            <span class="badge-beacon"></span>
+            <span class="badge-code">SYS://PROTOCOL_2026</span>
+            <span class="badge-divider">|</span>
+            <span class="badge-text">NEXT-GEN DEEP TECH ARCHITECTURE</span>
+          </span>
+        </div>
+
+        <!-- High-Impact Title -->
+        <h1 class="hero-title">
+          <span class="title-primary">ACIDX</span>
+          <span class="title-sub">
+            <span class="neon-cyan">ADVANCED CLOUD</span> &amp; 
+            <span class="neon-green">INTELLIGENT DEVELOPMENT</span> 
+            <span class="title-x">X</span>
+          </span>
+        </h1>
+
+        <!-- Brand Full Form & Tagline -->
+        <div class="tagline-container">
+          <div class="hero-tagline">
+            <span class="tag-quote">“</span>BEYOND CODE, BEYOND LIMITS.<span class="tag-quote">”</span>
+          </div>
+          <p class="hero-description">
+            Next-Gen Software Architecture, Custom Discord &amp; Telegram Bot Frameworks, Desktop Automation Utilities, and Enterprise Workflow Engineering.
+          </p>
+        </div>
+
+        <!-- Hero CTAs -->
+        <div class="hero-cta-group">
+          <a href="#showcase" class="cyber-btn btn-primary">
+            <span class="btn-border-corner tl"></span>
+            <span class="btn-border-corner tr"></span>
+            <span class="btn-border-corner bl"></span>
+            <span class="btn-border-corner br"></span>
+            <span class="btn-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 12 12 14 14"></polyline></svg>
+            </span>
+            <span class="btn-text">EXPLORE SHOWCASE</span>
+            <span class="btn-arrow">↓</span>
+          </a>
+
+          <a href="#contact" class="cyber-btn btn-secondary open-quote-btn">
+            <span class="btn-border-corner tl"></span>
+            <span class="btn-border-corner tr"></span>
+            <span class="btn-border-corner bl"></span>
+            <span class="btn-border-corner br"></span>
+            <span class="btn-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </span>
+            <span class="btn-text">GET A QUOTE / DM US</span>
+            <span class="btn-arrow">⚡</span>
+          </a>
+
+          <a href="#terminal-section" class="cyber-btn btn-ghost terminal-trigger-btn">
+            <span class="terminal-prompt">&gt;_</span>
+            <span class="btn-text">LIVE HUD</span>
+          </a>
+        </div>
+
+        <!-- Live Telemetry KPI Pillars -->
+        <div class="hero-kpis">
+          <div class="kpi-card">
+            <div class="kpi-val neon-cyan">&lt; 3.8ms</div>
+            <div class="kpi-label">EXECUTION LATENCY</div>
+            <div class="kpi-bar"><div class="kpi-fill" style="width: 95%"></div></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-val neon-green">99.998%</div>
+            <div class="kpi-label">UPTIME INTEGRITY</div>
+            <div class="kpi-bar"><div class="kpi-fill green-fill" style="width: 99%"></div></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-val neon-silver">ACID + X</div>
+            <div class="kpi-label">RELIABILITY STANDARD</div>
+            <div class="kpi-bar"><div class="kpi-fill silver-fill" style="width: 100%"></div></div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-val neon-cyan">0% BLOAT</div>
+            <div class="kpi-label">AOT NATIVE ENGINE</div>
+            <div class="kpi-bar"><div class="kpi-fill" style="width: 92%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Cyber Matrix HUD Card -->
+      <div class="hero-hud-column">
+        <div class="cyber-hud-frame">
+          <div class="hud-corner-bracket tl"></div>
+          <div class="hud-corner-bracket tr"></div>
+          <div class="hud-corner-bracket bl"></div>
+          <div class="hud-corner-bracket br"></div>
+
+          <!-- HUD Header -->
+          <div class="hud-header">
+            <div class="hud-title-wrap">
+              <span class="hud-icon">⬢</span>
+              <span class="hud-title">ACIDX // CORE RUNTIME MONITOR</span>
+            </div>
+            <div class="hud-status-badge">
+              <span class="status-pulse"></span>
+              <span class="hud-status-text">SHARD_CLUSTER_ONLINE</span>
+            </div>
+          </div>
+
+          <!-- Live Visual Metrics -->
+          <div class="hud-body">
+            <!-- Simulated Cluster Node Grid -->
+            <div class="hud-cluster-grid">
+              <div class="cluster-node active">
+                <div class="node-meta">
+                  <span class="node-name">NODE-01: DISCORD SHARD</span>
+                  <span class="node-val neon-green">ANTI-NUKE ARM</span>
+                </div>
+                <div class="node-meter">
+                  <div class="meter-track"><div class="meter-live" style="width: 82%"></div></div>
+                  <span class="node-freq">0.4ms tick</span>
+                </div>
+              </div>
+
+              <div class="cluster-node active">
+                <div class="node-meta">
+                  <span class="node-name">NODE-02: TELEGRAM MTPROTO</span>
+                  <span class="node-val neon-cyan">ROUTER LIVE</span>
+                </div>
+                <div class="node-meter">
+                  <div class="meter-track"><div class="meter-live" style="width: 68%"></div></div>
+                  <span class="node-freq">1.2ms relay</span>
+                </div>
+              </div>
+
+              <div class="cluster-node active">
+                <div class="node-meta">
+                  <span class="node-name">NODE-03: WIN32 AOT DAEMON</span>
+                  <span class="node-val neon-green">MULTI-THREAD</span>
+                </div>
+                <div class="node-meter">
+                  <div class="meter-track"><div class="meter-live" style="width: 44%"></div></div>
+                  <span class="node-freq">12MB RAM</span>
+                </div>
+              </div>
+
+              <div class="cluster-node active">
+                <div class="node-meta">
+                  <span class="node-name">NODE-04: N8N PIPELINE BRIDGE</span>
+                  <span class="node-val neon-silver">24 ACTIVE FLOWS</span>
+                </div>
+                <div class="node-meter">
+                  <div class="meter-track"><div class="meter-live" style="width: 77%"></div></div>
+                  <span class="node-freq">100% sync</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Realtime Hex/Stream Code Box -->
+            <div class="hud-code-stream">
+              <div class="stream-line"><span class="stream-ts">[11:00:14.28]</span> <span class="stream-tag neon-cyan">[ACID_GUARD]</span> Atomicity state check: <span class="neon-green">VERIFIED</span></div>
+              <div class="stream-line"><span class="stream-ts">[11:00:14.39]</span> <span class="stream-tag neon-green">[DISCORD_BOT]</span> Anti-nuke packet scan: 184 requests filtered / 0 breach</div>
+              <div class="stream-line"><span class="stream-ts">[11:00:14.51]</span> <span class="stream-tag neon-silver">[WIN_SERVICE]</span> Task pool idle: 32 worker threads standing by</div>
+              <div class="stream-line"><span class="stream-ts">[11:00:14.72]</span> <span class="stream-tag neon-cyan">[N8N_RELAY]</span> Webhook dispatched to Telegram supergroup cluster</div>
+              <div class="stream-line blinking-line"><span class="stream-ts">[11:00:14.99]</span> <span class="stream-tag neon-green">[X_ENGINE]</span> System heartbeat nominal. Ready for payload...<span class="terminal-cursor">█</span></div>
+            </div>
+
+            <!-- HUD Quick Action Bar -->
+            <div class="hud-footer">
+              <div class="hud-stat-item">
+                <span class="hud-stat-lbl">CIPHER:</span>
+                <span class="hud-stat-data">AES-256-GCM</span>
+              </div>
+              <div class="hud-stat-item">
+                <span class="hud-stat-lbl">MEMORY:</span>
+                <span class="hud-stat-data neon-green">34.8 MB</span>
+              </div>
+              <div class="hud-stat-item">
+                <button class="hud-ping-btn" id="hud-ping-test">
+                  <span>PING CLUSTER</span>
+                  <span class="ping-result" id="hud-ping-val">3ms</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== ABOUT / MISSION SECTION ======================== -->
+  <section class="section-container" id="about">
+    <div class="cyber-container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <div class="section-tag-row">
+          <span class="sec-index">// 01</span>
+          <span class="sec-tag">ARCHITECTURAL FOUNDATION &amp; PHILOSOPHY</span>
+        </div>
+        <h2 class="section-title">
+          BUILT ON ABSOLUTE RELIABILITY. <br>
+          <span class="neon-cyan">ACID PRINCIPLES</span> MEETS <span class="neon-green">EXTENDED EXECUTION (X)</span>.
+        </h2>
+        <p class="section-subtitle">
+          In database theory, ACID guarantees that zero data is lost, transactions never corrupt, and concurrent actions never conflict. 
+          At <strong>ACIDX</strong>, we brought this military-grade engineering standard into custom Discord ecosystems, Telegram bot fleets, Windows desktop utilities, and mission-critical cloud pipelines.
+        </p>
+      </div>
+
+      <!-- ACID + X Interactive Grid -->
+      <div class="acid-breakdown-grid">
+        <!-- Card 1: Atomicity -->
+        <div class="acid-card" data-acid="A">
+          <div class="acid-badge">A</div>
+          <div class="acid-content">
+            <h3 class="acid-title">ATOMICITY</h3>
+            <p class="acid-desc">
+              All or nothing. In our anti-nuke, moderation, and automated tools, operations execute to 100% completion or safely roll back instantly. Zero half-altered permissions, zero orphaned files.
+            </p>
+            <div class="acid-metric">
+              <span class="metric-key">ROLLBACK INTEGRITY</span>
+              <span class="metric-val neon-green">100.0%</span>
+            </div>
+          </div>
+          <div class="card-glow-edge"></div>
+        </div>
+
+        <!-- Card 2: Consistency -->
+        <div class="acid-card" data-acid="C">
+          <div class="acid-badge">C</div>
+          <div class="acid-content">
+            <h3 class="acid-title">CONSISTENCY</h3>
+            <p class="acid-desc">
+              Guaranteed single source of truth. Synchronized Discord shard memory, persistent Redis states, and relational databases ensure rules and user privileges stay pristine across all nodes.
+            </p>
+            <div class="acid-metric">
+              <span class="metric-key">CLUSTER DRIFT</span>
+              <span class="metric-val neon-cyan">0.00ms</span>
+            </div>
+          </div>
+          <div class="card-glow-edge"></div>
+        </div>
+
+        <!-- Card 3: Isolation -->
+        <div class="acid-card" data-acid="I">
+          <div class="acid-badge">I</div>
+          <div class="acid-content">
+            <h3 class="acid-title">ISOLATION</h3>
+            <p class="acid-desc">
+              Multi-threaded concurrent execution without race conditions. Hundreds of concurrent moderation actions, webhook triggers, and Windows tasks run without blocking or cross-thread deadlocks.
+            </p>
+            <div class="acid-metric">
+              <span class="metric-key">THREAD CONCURRENCY</span>
+              <span class="metric-val neon-green">UNLIMITED</span>
+            </div>
+          </div>
+          <div class="card-glow-edge"></div>
+        </div>
+
+        <!-- Card 4: Durability -->
+        <div class="acid-card" data-acid="D">
+          <div class="acid-badge">D</div>
+          <div class="acid-content">
+            <h3 class="acid-title">DURABILITY</h3>
+            <p class="acid-desc">
+              Survives crashes, power loss, and network splits. Self-healing supervisor daemons restart microservices in milliseconds with zero state loss, maintaining persistent configurations.
+            </p>
+            <div class="acid-metric">
+              <span class="metric-key">DATA LOSS TOLERANCE</span>
+              <span class="metric-val neon-silver">0 BYTES</span>
+            </div>
+          </div>
+          <div class="card-glow-edge"></div>
+        </div>
+
+        <!-- Card 5: Extended Execution (X) -->
+        <div class="acid-card acid-card-x" data-acid="X">
+          <div class="acid-badge acid-badge-x">X</div>
+          <div class="acid-content">
+            <h3 class="acid-title"><span class="neon-cyan">EXTENDED</span> <span class="neon-green">EXECUTION</span></h3>
+            <p class="acid-desc">
+              The "X" multiplier. Beyond standard templates and cookie-cutter bots. We develop custom low-level native Win32/Rust code, high-throughput Telegram MTProto clients, and tailor-made enterprise automation.
+            </p>
+            <div class="acid-metric">
+              <span class="metric-key">CUSTOM CAPABILITY</span>
+              <span class="metric-val neon-green">BESPOKE / NEXT-GEN</span>
+            </div>
+          </div>
+          <div class="card-glow-edge-x"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== PORTFOLIO & SHOWCASE SECTION ======================== -->
+  <section class="section-container showcase-section" id="showcase">
+    <div class="cyber-container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <div class="section-tag-row">
+          <span class="sec-index">// 02</span>
+          <span class="sec-tag">PORTFOLIO &amp; SHOWCASE REPOSITORY</span>
+        </div>
+        <h2 class="section-title">
+          MISSION-CRITICAL SOFTWARE <br>
+          <span class="neon-cyan">ENGINEERED FOR PRODUCTION IMPACT</span>
+        </h2>
+        <p class="section-subtitle">
+          Explore our four specialized development verticals. Every framework is built for maximum speed, strict security, zero bloat, and seamless scalability.
+        </p>
+      </div>
+
+      <!-- Interactive Tab Control Navigation -->
+      <div class="showcase-nav-container">
+        <div class="showcase-tabs" role="tablist">
+          <!-- Tab 1: Discord Showcase -->
+          <button class="showcase-tab-btn active" role="tab" aria-selected="true" data-tab="discord" id="tab-discord">
+            <span class="tab-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+            </span>
+            <span class="tab-label">DISCORD SHOWCASE</span>
+            <span class="tab-count">5</span>
+          </button>
+
+          <!-- Tab 2: PC Tool Showcase -->
+          <button class="showcase-tab-btn" role="tab" aria-selected="false" data-tab="pc-tool" id="tab-pctool">
+            <span class="tab-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </span>
+            <span class="tab-label">PC TOOL SHOWCASE</span>
+            <span class="tab-count">3</span>
+          </button>
+
+          <!-- Tab 3: Tele Showcase -->
+          <button class="showcase-tab-btn" role="tab" aria-selected="false" data-tab="tele" id="tab-tele">
+            <span class="tab-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+              </svg>
+            </span>
+            <span class="tab-label">TELE SHOWCASE</span>
+            <span class="tab-count">3</span>
+          </button>
+
+          <!-- Tab 4: Work Flow Showcase -->
+          <button class="showcase-tab-btn" role="tab" aria-selected="false" data-tab="workflow" id="tab-workflow">
+            <span class="tab-icon">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+            </span>
+            <span class="tab-label">WORK FLOW SHOWCASE</span>
+            <span class="tab-count">2</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= SHOWCASE CONTENT PANELS ================= -->
+      <div class="showcase-display-area">
+
+        <!-- ================= PANEL 1: DISCORD SHOWCASE ================= -->
+        <div class="showcase-panel active" id="panel-discord" role="tabpanel">
+          <div class="showcase-grid">
+
+            <!-- Card 1: Anti-Nuke Bot -->
+            <div class="project-card" data-category="discord">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag neon-border-cyan">DEFENSE CORE</span>
+                  <span class="badge-status status-live"><span class="dot"></span>ACTIVE DEFENSE</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#00F0FF" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="M12 8v4"></path>
+                    <path d="M12 16h.01"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Anti-Nuke Bot</h3>
+                <div class="project-vertical">Server Protection &amp; Security Shield</div>
+                <p class="project-desc">
+                  Sub-millisecond real-time threat interceptor. Halts unauthorized mass bans, channel purges, webhook exploits, and privilege escalations before the Discord Audit Log even propagates.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">&lt; 8ms Action Intercept</span>
+                  <span class="feat-pill">Emergency Lockdown</span>
+                  <span class="feat-pill">Self-Healing Perms</span>
+                  <span class="feat-pill">Whitelisting Engine</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">Discord.js v14</span>
+                  <span class="tech-chip">Rust Sentinel</span>
+                  <span class="tech-chip">Redis Streams</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="anti-nuke">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Anti-Nuke Bot">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 2: Moderation Bot -->
+            <div class="project-card" data-category="discord">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag neon-border-green">COMMUNITY GOV</span>
+                  <span class="badge-status status-live"><span class="dot"></span>PRODUCTION</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#39FF14" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="8.5" cy="7.5" r="4"></circle>
+                    <polyline points="17 11 19 13 23 9"></polyline>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Moderation Bot</h3>
+                <div class="project-vertical">Automated Community Management</div>
+                <p class="project-desc">
+                  Intelligent auto-sanctions, regex anti-spam filtering, tiered warning systems, and instant audit trails. Complete with ephemeral slash commands and integrated ticket dispatch.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">Auto Mute / Timeout</span>
+                  <span class="feat-pill">Phishing Link Guard</span>
+                  <span class="feat-pill">Interactive Mod Logs</span>
+                  <span class="feat-pill">Ticket Transcripts</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">Node.js / TS</span>
+                  <span class="tech-chip">PostgreSQL</span>
+                  <span class="tech-chip">REST API</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="moderation">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Moderation Bot">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 3: Nickname Change Bot -->
+            <div class="project-card" data-category="discord">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag">BRAND IDENTITY</span>
+                  <span class="badge-status status-live"><span class="dot"></span>AUTOMATED</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#00F0FF" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Nickname Change Bot</h3>
+                <div class="project-vertical">Automated User Branding &amp; Guild Enforce</div>
+                <p class="project-desc">
+                  Enforces server naming rules, clan/guild prefix formats, and cleans invisible Unicode zero-width characters. Supports mass database name synchronization at 500+ users/min.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">Clan Tag Formatting</span>
+                  <span class="feat-pill">Invisible Name Strip</span>
+                  <span class="feat-pill">Mass Sync Engine</span>
+                  <span class="feat-pill">Role-Based Formats</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">Discord.js</span>
+                  <span class="tech-chip">Python Async</span>
+                  <span class="tech-chip">SQLite / Cache</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="nickname">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Nickname Change Bot">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 4: Music Bot -->
+            <div class="project-card" data-category="discord">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag neon-border-green">LOSSLESS AUDIO</span>
+                  <span class="badge-status status-live"><span class="dot"></span>384 KBPS</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#39FF14" stroke-width="2">
+                    <path d="M9 18V5l12-2v13"></path>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <circle cx="18" cy="16" r="3"></circle>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Music Bot</h3>
+                <div class="project-vertical">High-Quality Audio Streaming Engine</div>
+                <p class="project-desc">
+                  Ultra-low latency audio streaming engine powered by dedicated audio nodes. Supports YouTube, Spotify, SoundCloud, 24/7 radio channels, custom equalizers, and button-driven player controls.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">0% Audio Packet Drop</span>
+                  <span class="feat-pill">24/7 VC Persistence</span>
+                  <span class="feat-pill">Custom Bass EQ</span>
+                  <span class="feat-pill">Direct Spotify Queues</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">Lavalink v4</span>
+                  <span class="tech-chip">Opus Codec</span>
+                  <span class="tech-chip">Java Engine</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="music">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Music Bot">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 5: Custom Bot -->
+            <div class="project-card" data-category="discord">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag neon-border-cyan">BESPOKE</span>
+                  <span class="badge-status status-live"><span class="dot"></span>TAILORED</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#00F0FF" stroke-width="2">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Custom Bot</h3>
+                <div class="project-vertical">Bespoke Features for Discord Communities</div>
+                <p class="project-desc">
+                  Designed from the ground up for your unique server economy, custom verification flows, API bridges, payment gates, or community RPG games with dedicated dashboard management.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">Custom Database Schemas</span>
+                  <span class="feat-pill">Stripe/Crypto Billing</span>
+                  <span class="feat-pill">Webhook Integrations</span>
+                  <span class="feat-pill">Web Admin Panel</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">Node / Python</span>
+                  <span class="tech-chip">Docker</span>
+                  <span class="tech-chip">PostgreSQL</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="custom-discord">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Custom Discord Bot">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= PANEL 2: PC TOOL SHOWCASE ================= -->
+        <div class="showcase-panel" id="panel-pc-tool" role="tabpanel">
+          <div class="showcase-grid">
+
+            <!-- Card 1: Single-Task Soft -->
+            <div class="project-card" data-category="pctool">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag neon-border-cyan">NATIVE AOT</span>
+                  <span class="badge-status status-live"><span class="dot"></span>PORTABLE</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#00F0FF" stroke-width="2">
+                    <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                    <rect x="9" y="9" width="6" height="6"></rect>
+                    <line x1="9" y1="1" x2="9" y2="4"></line>
+                    <line x1="15" y1="1" x2="15" y2="4"></line>
+                    <line x1="9" y1="20" x2="9" y2="23"></line>
+                    <line x1="15" y1="20" x2="15" y2="23"></line>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Single-Task Soft</h3>
+                <div class="project-vertical">Lightweight Desktop Utilities</div>
+                <p class="project-desc">
+                  Hyper-optimized, zero-dependency standalone Windows utility applications. Designed for instant 0.05-second startup, sub-15MB RAM consumption, and single-purpose surgical execution.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">&lt; 15MB RAM Footprint</span>
+                  <span class="feat-pill">Instant Startup</span>
+                  <span class="feat-pill">Zero Registry Clutter</span>
+                  <span class="feat-pill">Portable .EXE</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">C# .NET 9 Native AOT</span>
+                  <span class="tech-chip">Rust WinAPI</span>
+                  <span class="tech-chip">DirectX HUD</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="single-task">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Single-Task Soft">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 2: Multi-Task Soft -->
+            <div class="project-card" data-category="pctool">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag neon-border-green">CONCURRENCY</span>
+                  <span class="badge-status status-live"><span class="dot"></span>THREAD POOL</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#39FF14" stroke-width="2">
+                    <line x1="6" y1="3" x2="6" y2="15"></line>
+                    <circle cx="18" cy="6" r="3"></circle>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <path d="M18 9a9 9 0 0 1-9 9"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Multi-Task Soft</h3>
+                <div class="project-vertical">Multi-Threaded Background Applications</div>
+                <p class="project-desc">
+                  High-throughput background workhorses. Capable of dispatching up to 128 asynchronous worker threads for batch file conversions, real-time data scraping, token validation, and multi-endpoint polling.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">128 Concurrent Threads</span>
+                  <span class="feat-pill">Non-Blocking UI</span>
+                  <span class="feat-pill">Crash-Isolated Workers</span>
+                  <span class="feat-pill">Auto Task Recovery</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">WPF / Avalonia</span>
+                  <span class="tech-chip">Asynchronous TPL</span>
+                  <span class="tech-chip">SQLite Core</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="multi-task">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Multi-Task Soft">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 3: Custom Task Soft -->
+            <div class="project-card" data-category="pctool">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag">KERNEL &amp; PERF</span>
+                  <span class="badge-status status-live"><span class="dot"></span>SPECIALIZED</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#00F0FF" stroke-width="2">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Custom Task Soft</h3>
+                <div class="project-vertical">Tailored Windows Performance &amp; Diagnostic Tools</div>
+                <p class="project-desc">
+                  Deep-level Windows environment optimization software. Includes CPU core affinity binders, latency debloaters, network packet routing analyzers, and customized automated diagnostic workflows.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">Core Affinity Tuning</span>
+                  <span class="feat-pill">WMI Hardware Probe</span>
+                  <span class="feat-pill">TCP/UDP Optimizer</span>
+                  <span class="feat-pill">Silent Background Service</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">C++ Win32</span>
+                  <span class="tech-chip">Rust Syscall</span>
+                  <span class="tech-chip">Windows Services</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="custom-task">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Custom Task Soft">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= PANEL 3: TELE SHOWCASE ================= -->
+        <div class="showcase-panel" id="panel-tele" role="tabpanel">
+          <div class="showcase-grid">
+
+            <!-- Card 1: Telegram Mod Bot -->
+            <div class="project-card" data-category="tele">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag neon-border-cyan">SUPERGROUP ARMOR</span>
+                  <span class="badge-status status-live"><span class="dot"></span>MTPROTO</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#00F0FF" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Telegram Mod Bot</h3>
+                <div class="project-vertical">Group Administration &amp; Anti-Spam Gate</div>
+                <p class="project-desc">
+                  Engineered for ultra-high traffic Telegram groups (up to 200,000 members). Interactive button captchas, aggressive flood mitigators, Arabic/Chinese character filters, and automated scam account purging.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">Interactive Captcha Gate</span>
+                  <span class="feat-pill">Anti-Flood Rate Limiter</span>
+                  <span class="feat-pill">CAS Global Blacklist</span>
+                  <span class="feat-pill">Auto Kick &amp; Ban</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">Pyrogram / MTProto</span>
+                  <span class="tech-chip">Redis Token Bucket</span>
+                  <span class="tech-chip">FastAPI</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="tele-mod">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Telegram Mod Bot">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 2: Telegram Workflow Bot -->
+            <div class="project-card" data-category="tele">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag neon-border-green">DATA PIPELINE</span>
+                  <span class="badge-status status-live"><span class="dot"></span>ACTIVE RELAY</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#39FF14" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Telegram Workflow Bot</h3>
+                <div class="project-vertical">Automated Message Routing &amp; Data Processing</div>
+                <p class="project-desc">
+                  Transforms incoming Telegram channels and chats into real-time computational data conduits. Automatically parses trading alerts, forwards structured webhooks to Discord, and saves leads to databases.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">Channel Relay Mirror</span>
+                  <span class="feat-pill">Regex Field Extractor</span>
+                  <span class="feat-pill">Webhook Sync</span>
+                  <span class="feat-pill">Document Auto-Watermark</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">Grammy Framework</span>
+                  <span class="tech-chip">RabbitMQ Bus</span>
+                  <span class="tech-chip">Node.js Stream</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="tele-workflow">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Telegram Workflow Bot">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 3: Telegram Custom Bots -->
+            <div class="project-card" data-category="tele">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag">MINI-APPS &amp; APIS</span>
+                  <span class="badge-status status-live"><span class="dot"></span>ENTERPRISE</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#00F0FF" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Telegram Custom Bots</h3>
+                <div class="project-vertical">Bespoke API, Webhook &amp; TMA Integration</div>
+                <p class="project-desc">
+                  Bespoke Telegram Mini Apps (TMA), payment processors (Telegram Stars, TON, USDT, Stripe), VIP channel subscription paywalls, and proprietary customer service ticketing engines.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">Telegram Mini-App Web</span>
+                  <span class="feat-pill">Crypto &amp; Stars Pay</span>
+                  <span class="feat-pill">Auto VIP Invite Link</span>
+                  <span class="feat-pill">CRM Integration</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">React TMA</span>
+                  <span class="tech-chip">Telegram Bot API 7.0+</span>
+                  <span class="tech-chip">Postgres</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="tele-custom">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Telegram Custom Bot">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ================= PANEL 4: WORK FLOW SHOWCASE ================= -->
+        <div class="showcase-panel" id="panel-workflow" role="tabpanel">
+          <div class="showcase-grid">
+
+            <!-- Card 1: Social Work-Flow -->
+            <div class="project-card" data-category="workflow">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag neon-border-cyan">OMNICHANNEL</span>
+                  <span class="badge-status status-live"><span class="dot"></span>AUTOMATION</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#00F0FF" stroke-width="2">
+                    <circle cx="18" cy="5" r="3"></circle>
+                    <circle cx="6" cy="12" r="3"></circle>
+                    <circle cx="18" cy="19" r="3"></circle>
+                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">Social Work-Flow</h3>
+                <div class="project-vertical">Cross-Platform Social Automation</div>
+                <p class="project-desc">
+                  Write once, broadcast everywhere with dynamic adaptation. Seamlessly syncs community announcements across Discord, Telegram channels, X/Twitter, Reddit, and Web3 social feeds with zero rate-limit blocks.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">Cross-Platform Sync</span>
+                  <span class="feat-pill">Dynamic Image Re-Branding</span>
+                  <span class="feat-pill">Rate-Limit Buffer Queue</span>
+                  <span class="feat-pill">Schedule Calendar</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">n8n Core</span>
+                  <span class="tech-chip">REST APIs</span>
+                  <span class="tech-chip">Redis Queue</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="social-workflow">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="Social Work-Flow">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Card 2: N8N Work-Flow -->
+            <div class="project-card" data-category="workflow">
+              <div class="card-header">
+                <div class="card-badges">
+                  <span class="badge-tag neon-border-green">ENTERPRISE PIPELINE</span>
+                  <span class="badge-status status-live"><span class="dot"></span>LOW-CODE / NO-CODE</span>
+                </div>
+                <div class="card-icon-wrap">
+                  <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#39FF14" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h3 class="project-title">N8N Work-Flow</h3>
+                <div class="project-vertical">No-Code/Low-Code Enterprise Pipeline Automation</div>
+                <p class="project-desc">
+                  Self-hosted, high-security enterprise workflow automation. Integrates payment systems (Stripe), Google Sheets, CRM pipelines, SQL databases, and customer notifications with intelligent fallback branches.
+                </p>
+
+                <div class="feature-tags-list">
+                  <span class="feat-pill">Self-Hosted Security</span>
+                  <span class="feat-pill">Zero Glue Code Breakage</span>
+                  <span class="feat-pill">Automated Fallback Retries</span>
+                  <span class="feat-pill">Instant Slack/Telegram Alerts</span>
+                </div>
+
+                <div class="tech-spec-bar">
+                  <span class="tech-chip">n8n Enterprise</span>
+                  <span class="tech-chip">Docker Compose</span>
+                  <span class="tech-chip">PostgreSQL</span>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <button class="cyber-btn-card inspect-btn" data-project="n8n-workflow">
+                  <span>INSPECT SPECS</span>
+                  <span class="btn-bracket">[+]</span>
+                </button>
+                <a href="#contact" class="cyber-btn-card-inquire open-quote-btn" data-preset="N8N Work-Flow">
+                  <span>ORDER BUILD</span>
+                  <span>⚡</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== SERVICES & CORE CAPABILITIES ======================== -->
+  <section class="section-container" id="capabilities">
+    <div class="cyber-container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <div class="section-tag-row">
+          <span class="sec-index">// 03</span>
+          <span class="sec-tag">FULL-SPECTRUM TECHNICAL CAPABILITIES</span>
+        </div>
+        <h2 class="section-title">
+          WHAT WE BUILD AT ACIDX. <br>
+          <span class="neon-cyan">ZERO COMPROMISE. PURE PERFORMANCE.</span>
+        </h2>
+        <p class="section-subtitle">
+          From microsecond bot engines to bare-metal Windows software and autonomous cloud orchestrations, we architect solutions that outlast and outperform off-the-shelf alternatives.
+        </p>
+      </div>
+
+      <!-- 4 Core Capabilities Bento Grid -->
+      <div class="capabilities-grid">
+
+        <!-- Capability 1 -->
+        <div class="capability-card cap-large">
+          <div class="cap-header">
+            <div class="cap-num neon-cyan">01 // BOT ENGINEERING</div>
+            <div class="cap-icon-box">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#00F0FF" stroke-width="2">
+                <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                <circle cx="12" cy="5" r="2"></circle>
+                <path d="M12 7v4"></path>
+                <line x1="8" y1="16" x2="8" y2="16"></line>
+                <line x1="16" y1="16" x2="16" y2="16"></line>
+              </svg>
+            </div>
+          </div>
+          <h3 class="cap-title">Custom Bot Development (Discord &amp; Telegram)</h3>
+          <p class="cap-desc">
+            Production-grade bots engineered with zero downtime in mind. We build custom anti-nuke shields, lossless music streaming backends, automated community moderation, and MTProto Telegram engines equipped with Redis-backed state replication and sharding.
+          </p>
+
+          <div class="cap-features-grid">
+            <div class="cap-feat-item">
+              <span class="cap-feat-icon">⚡</span>
+              <div>
+                <strong>Sub-Millisecond Response</strong>
+                <p>Direct WebSocket parsing bypassing slow abstraction layers.</p>
+              </div>
+            </div>
+            <div class="cap-feat-item">
+              <span class="cap-feat-icon">🛡️</span>
+              <div>
+                <strong>Anti-Exploit Architecture</strong>
+                <p>Zero vulnerability to Discord rate-limit lockouts or token exhaustion.</p>
+              </div>
+            </div>
+            <div class="cap-feat-item">
+              <span class="cap-feat-icon">🗄️</span>
+              <div>
+                <strong>Persistent Cloud State</strong>
+                <p>PostgreSQL, Redis cluster, and Dockerized microservice architecture.</p>
+              </div>
+            </div>
+            <div class="cap-feat-item">
+              <span class="cap-feat-icon">📱</span>
+              <div>
+                <strong>Telegram Mini-Apps (TMA)</strong>
+                <p>Seamless Web3, crypto, and payment integrations within Telegram.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Capability 2 -->
+        <div class="capability-card">
+          <div class="cap-header">
+            <div class="cap-num neon-green">02 // DESKTOP SYSTEMS</div>
+            <div class="cap-icon-box">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#39FF14" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
+          </div>
+          <h3 class="cap-title">Windows Desktop Software &amp; Utility Optimization</h3>
+          <p class="cap-desc">
+            Native, lightning-fast Windows software compiled with .NET 9 Native AOT and Rust. No sluggish Electron bloat, no 500MB memory leaks—just surgical, multi-threaded performance.
+          </p>
+          <ul class="cap-checklist">
+            <li><span class="chk-icon">✔</span> Single-task &amp; multi-task background processing engines</li>
+            <li><span class="chk-icon">✔</span> Windows Kernel hooks, process affinity, and low-latency tuning</li>
+            <li><span class="chk-icon">✔</span> Hardware telemetry, diagnostic tools, and custom task runners</li>
+          </ul>
+        </div>
+
+        <!-- Capability 3 -->
+        <div class="capability-card">
+          <div class="cap-header">
+            <div class="cap-num neon-silver">03 // CLOUD INFRA</div>
+            <div class="cap-icon-box">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#F0F4F8" stroke-width="2">
+                <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+              </svg>
+            </div>
+          </div>
+          <h3 class="cap-title">Cloud Infrastructure &amp; API Integration</h3>
+          <p class="cap-desc">
+            Resilient containerized cloud architectures engineered for 99.99% uptime. Complete with automated deployment pipelines, reverse proxies, and hardened API gateways.
+          </p>
+          <ul class="cap-checklist">
+            <li><span class="chk-icon">✔</span> Docker Compose, VPS provisioning &amp; automated systemd monitoring</li>
+            <li><span class="chk-icon">✔</span> RESTful, GraphQL &amp; WebSocket API bridge engineering</li>
+            <li><span class="chk-icon">✔</span> Secure SSL/TLS termination, rate-limiting &amp; DDoS shielding</li>
+          </ul>
+        </div>
+
+        <!-- Capability 4 -->
+        <div class="capability-card cap-large">
+          <div class="cap-header">
+            <div class="cap-num neon-cyan">04 // AUTOMATION PIPELINES</div>
+            <div class="cap-icon-box">
+              <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#00F0FF" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+          </div>
+          <h3 class="cap-title">Automated Workflow Pipelines (n8n &amp; Webhooks)</h3>
+          <p class="cap-desc">
+            Eliminate repetitive manual tasks through autonomous enterprise workflows. We design resilient n8n pipelines that connect databases, messaging platforms, payment processors, and AI models into a self-driving machine.
+          </p>
+
+          <div class="cap-pipeline-visual">
+            <div class="pipe-node">TRIGGER (WEBHOOK / CRON)</div>
+            <div class="pipe-arrow">➔</div>
+            <div class="pipe-node pipe-highlight">DATA TRANSFORMATION &amp; VALIDATION</div>
+            <div class="pipe-arrow">➔</div>
+            <div class="pipe-node">ACIDX ACID WORKER</div>
+            <div class="pipe-arrow">➔</div>
+            <div class="pipe-node pipe-success">MULTI-CHANNEL DISPATCH</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== INTERACTIVE LIVE HUD TERMINAL ======================== -->
+  <section class="section-container" id="terminal-section">
+    <div class="cyber-container">
+      <div class="section-header">
+        <div class="section-tag-row">
+          <span class="sec-index">// 04</span>
+          <span class="sec-tag">INTERACTIVE COMMAND CONSOLE</span>
+        </div>
+        <h2 class="section-title">
+          COMMUNICATE WITH THE <span class="neon-cyan">ACIDX MATRIX HUD</span>
+        </h2>
+        <p class="section-subtitle">
+          Type commands directly into our interactive console simulator. Test latency, inspect active services, or generate an instant project quote.
+        </p>
+      </div>
+
+      <div class="cyber-terminal-window">
+        <div class="terminal-titlebar">
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="terminal-bar-title">ACIDX_OS // ROOT_EXECUTION_SHELL [v4.2.0]</div>
+          <div class="terminal-bar-node">NODE: PRIME_SECURE</div>
+        </div>
+
+        <div class="terminal-content" id="terminal-output">
+          <div class="term-line welcome-line"><span class="neon-cyan">═══════════════════════════════════════════════════════════════════════</span></div>
+          <div class="term-line"><span class="neon-green">ACIDX TERMINAL SYSTEM</span> [ONLINE] — TYPE <strong class="cmd-highlight">help</strong> TO VIEW COMMANDS.</div>
+          <div class="term-line">Connected: <span class="neon-cyan">TLS_AES_256_GCM_SHA384</span> // Session Token: <span class="neon-silver">0xACID_X_LIVE</span></div>
+          <div class="term-line welcome-line"><span class="neon-cyan">═══════════════════════════════════════════════════════════════════════</span></div>
+          <div class="term-line"><span class="term-dim">Try commands:</span> <span class="cmd-pill">help</span> <span class="cmd-pill">status</span> <span class="cmd-pill">showcase</span> <span class="cmd-pill">ping</span> <span class="cmd-pill">acid</span> <span class="cmd-pill">quote</span> <span class="cmd-pill">matrix</span> <span class="cmd-pill">clear</span></div>
+        </div>
+
+        <form class="terminal-input-row" id="terminal-form">
+          <span class="term-prompt-sym">acidx@prime:~$</span>
+          <input type="text" id="terminal-input" class="term-input" placeholder="Enter command (e.g. status, ping, quote)..." autocomplete="off" spellcheck="false">
+          <button type="submit" class="term-submit-btn">EXECUTE</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER & CONTACT SECTION ======================== -->
+  <footer class="cyber-footer" id="contact">
+    <div class="cyber-container">
+      <!-- Main Contact Grid -->
+      <div class="footer-hero-box">
+        <div class="footer-bg-glow"></div>
+        <div class="footer-content-wrap">
+          <div class="footer-tag">COMMISSION YOUR SOFTWARE</div>
+          <h2 class="footer-heading">
+            READY TO BUILD <br>
+            <span class="neon-cyan">BEYOND LIMITS?</span>
+          </h2>
+          <p class="footer-subtext">
+            Whether you need an uncrackable Discord Anti-Nuke system, a high-volume Telegram automation fleet, a zero-bloat Windows utility, or an automated workflow pipeline—we build with precision.
+          </p>
+
+          <div class="footer-cta-buttons">
+            <button class="cyber-btn btn-primary open-quote-btn" id="footer-inquire-btn">
+              <span class="btn-text">LAUNCH INQUIRY / GET A QUOTE</span>
+              <span class="btn-arrow">⚡</span>
+            </button>
+
+            <a href="https://discord.com" target="_blank" rel="noopener" class="cyber-btn btn-secondary contact-link-btn">
+              <span class="btn-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028z"/>
+                </svg>
+              </span>
+              <span class="btn-text">DM ON DISCORD</span>
+              <span class="status-indicator-dot"></span>
+            </a>
+
+            <a href="https://t.me" target="_blank" rel="noopener" class="cyber-btn btn-ghost contact-link-btn">
+              <span class="btn-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                </svg>
+              </span>
+              <span class="btn-text">DM ON TELEGRAM</span>
+              <span class="status-indicator-dot"></span>
+            </a>
+          </div>
+
+          <!-- Direct Inquiries Quick Info -->
+          <div class="direct-contact-status">
+            <div class="status-pill-direct">
+              <span class="pulse-beacon green"></span>
+              <span>LIVE DM AVAILABILITY: <strong class="neon-green">ONLINE (RESPONSE &lt; 15 MINS)</strong></span>
+            </div>
+            <div class="status-pill-direct">
+              <span class="pulse-beacon cyan"></span>
+              <span>DIRECT DISCORD: <strong class="neon-cyan copy-tag" data-copy="ACIDX_DEV">ACIDX_DEV</strong></span>
+            </div>
+            <div class="status-pill-direct">
+              <span class="pulse-beacon green"></span>
+              <span>DIRECT TELEGRAM: <strong class="neon-green copy-tag" data-copy="@ACIDX_EXEC">@ACIDX_EXEC</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Meta -->
+      <div class="footer-bottom-row">
+        <div class="footer-brand">
+          <span class="brand-name">ACID<span class="brand-x">X</span></span>
+          <span class="brand-line">|</span>
+          <span class="brand-full">Advanced Cloud &amp; Intelligent Development eXecution</span>
+        </div>
+
+        <div class="footer-links">
+          <a href="#about">Mission</a>
+          <a href="#showcase">Showcase</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#terminal-section">Live HUD</a>
+          <a href="#quote-modal" class="open-quote-btn">Quote</a>
+          <a href="#hero" class="back-to-top">TOP ▲</a>
+        </div>
+      </div>
+
+      <div class="footer-copyright-row">
+        <p class="copyright-text">
+          Copyright &copy; 2026 ACIDX. All Rights Reserved. Engineered with Absolute Reliability &amp; Extended Execution.
+        </p>
+        <p class="crypto-hash">
+          HASH: <span class="neon-silver">0x99A_ACIDX_PROTOCOL_RELEASE_V4.2</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================== INTERACTIVE MODAL 1: PROJECT SPEC INSPECTOR ======================== -->
+  <div class="cyber-modal-backdrop" id="specs-modal">
+    <div class="cyber-modal-container">
+      <div class="modal-corner tl"></div>
+      <div class="modal-corner tr"></div>
+      <div class="modal-corner bl"></div>
+      <div class="modal-corner br"></div>
+
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <span class="modal-header-tag">// TECHNICAL ARCHITECTURE SPEC</span>
+          <h3 class="modal-title" id="spec-modal-title">Anti-Nuke Bot</h3>
+        </div>
+        <button class="modal-close-btn" id="close-spec-modal" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body" id="spec-modal-body">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="modal-footer">
+        <button class="cyber-btn btn-ghost" id="spec-modal-close-btn">DISMISS</button>
+        <button class="cyber-btn btn-primary" id="spec-modal-order-btn">COMMISSION THIS BUILD ⚡</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== INTERACTIVE MODAL 2: PROJECT QUOTE & DM GENERATOR ======================== -->
+  <div class="cyber-modal-backdrop" id="quote-modal">
+    <div class="cyber-modal-container quote-modal-box">
+      <div class="modal-corner tl"></div>
+      <div class="modal-corner tr"></div>
+      <div class="modal-corner bl"></div>
+      <div class="modal-corner br"></div>
+
+      <div class="modal-header">
+        <div class="modal-header-left">
+          <span class="modal-header-tag">// PROJECT INQUIRY &amp; SCOPE ESTIMATOR</span>
+          <h3 class="modal-title">START YOUR COMMISSION WITH ACIDX</h3>
+        </div>
+        <button class="modal-close-btn" id="close-quote-modal" aria-label="Close modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="quote-form" class="quote-form">
+          <!-- Step 1: Select Vertical -->
+          <div class="form-group">
+            <label class="form-label">1. SELECT PROJECT VERTICAL</label>
+            <div class="quote-option-chips" id="vertical-selector">
+              <label class="chip-label active">
+                <input type="radio" name="vertical" value="Discord Bot" checked>
+                <span>Discord Bot</span>
+              </label>
+              <label class="chip-label">
+                <input type="radio" name="vertical" value="PC Desktop Tool">
+                <span>PC Desktop Tool</span>
+              </label>
+              <label class="chip-label">
+                <input type="radio" name="vertical" value="Telegram Bot">
+                <span>Telegram Bot</span>
+              </label>
+              <label class="chip-label">
+                <input type="radio" name="vertical" value="Workflow Pipeline">
+                <span>Workflow (n8n/Social)</span>
+              </label>
+              <label class="chip-label">
+                <input type="radio" name="vertical" value="Custom Full-Stack Hybrid">
+                <span>Custom Hybrid</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 2: Specific Requirements / Features -->
+          <div class="form-group">
+            <label class="form-label">2. CHOOSE REQUIRED ARCHITECTURAL MODULES</label>
+            <div class="quote-checkbox-grid">
+              <label class="check-box-label">
+                <input type="checkbox" name="module" value="Anti-Nuke / Exploit Defense" checked>
+                <span class="box-visual"></span>
+                <span>Anti-Nuke / Threat Defense</span>
+              </label>
+              <label class="check-box-label">
+                <input type="checkbox" name="module" value="Lossless Audio Engine">
+                <span class="box-visual"></span>
+                <span>Lossless Audio Engine</span>
+              </label>
+              <label class="check-box-label">
+                <input type="checkbox" name="module" value="Multi-Threaded Concurrency (PC)">
+                <span class="box-visual"></span>
+                <span>Multi-Threaded PC Engine</span>
+              </label>
+              <label class="check-box-label">
+                <input type="checkbox" name="module" value="Telegram MTProto High-Throughput">
+                <span class="box-visual"></span>
+                <span>Telegram MTProto Hub</span>
+              </label>
+              <label class="check-box-label">
+                <input type="checkbox" name="module" value="n8n Pipeline Integration">
+                <span class="box-visual"></span>
+                <span>n8n Pipeline / Webhooks</span>
+              </label>
+              <label class="check-box-label">
+                <input type="checkbox" name="module" value="PostgreSQL / Persistent Database">
+                <span class="box-visual"></span>
+                <span>Postgres &amp; Redis Cache</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Step 3: Deployment Preference -->
+          <div class="form-group">
+            <label class="form-label">3. HOSTING / RUNTIME PREFERENCE</label>
+            <select class="form-select" id="hosting-preference">
+              <option value="Self-Hosted (We deliver setup files & docs)">Self-Hosted (We provide setup files, Docker &amp; docs)</option>
+              <option value="ACIDX Managed VPS (24/7 Monitored Cloud)">ACIDX Managed Cloud (24/7 Monitored Cluster)</option>
+              <option value="Local Windows Standalone (.EXE / Service)">Local Windows Standalone (.EXE / Service)</option>
+            </select>
+          </div>
+
+          <!-- Step 4: Contact Handle -->
+          <div class="form-row-2">
+            <div class="form-group">
+              <label class="form-label">YOUR DISCORD OR TELEGRAM HANDLE</label>
+              <input type="text" class="form-input" id="client-handle" placeholder="e.g. username#0000 or @telegram_user" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">ESTIMATED TIMELINE</label>
+              <select class="form-select" id="timeline-preference">
+                <option value="Standard (1-2 Weeks)">Standard (1-2 Weeks)</option>
+                <option value="Fast-Track (3-5 Days)">Fast-Track (3-5 Days)</option>
+                <option value="Urgent Mission Critical (< 48 Hours)">Urgent Mission Critical (&lt; 48 Hours)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 5: Brief Scope Notes -->
+          <div class="form-group">
+            <label class="form-label">PROJECT SCOPE &amp; CUSTOM REQUIREMENTS</label>
+            <textarea class="form-textarea" id="project-notes" rows="3" placeholder="Briefly describe what your bot, software, or workflow needs to do..."></textarea>
+          </div>
+
+          <!-- Generated Formatted DM Preview -->
+          <div class="generated-dm-box">
+            <div class="dm-box-header">
+              <span>GENERATED DIRECT MESSAGE FOR ACIDX TEAM</span>
+              <button type="button" class="btn-copy-dm" id="copy-dm-btn">
+                <span>COPY DM TEXT</span>
+                <span class="copy-check" id="copy-check-icon">📋</span>
+              </button>
+            </div>
+            <pre class="dm-text-preview" id="dm-preview-text">
+Select your options above to compile your inquiry format...
+            </pre>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="cyber-btn btn-ghost" id="cancel-quote-btn">CANCEL</button>
+            <button type="button" class="cyber-btn btn-primary" id="launch-discord-dm-btn">
+              <span>COPY &amp; LAUNCH DISCORD</span>
+              <span>⚡</span>
+            </button>
+            <button type="button" class="cyber-btn btn-secondary" id="launch-tele-dm-btn">
+              <span>COPY &amp; LAUNCH TELEGRAM</span>
+              <span>✈</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Popup -->
+  <div class="cyber-toast" id="cyber-toast">
+    <div class="toast-beacon"></div>
+    <div class="toast-content" id="toast-message">Message Copied to Clipboard!</div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
